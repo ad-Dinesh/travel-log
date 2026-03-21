@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000",
+  baseURL: import.meta.env.VITE_API_URL || "https://travel-log-backend-d6bw.onrender.com",
 });
 
-// ✅ REQUEST INTERCEPTOR (attach token)
+//  REQUEST INTERCEPTOR (attach token)
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -18,11 +18,11 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// ✅ RESPONSE INTERCEPTOR (handle errors globally)
+//  RESPONSE INTERCEPTOR (handle errors globally)
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    // 🔥 Auto logout if token expired
+    //  Auto logout if token expired
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("token");
       window.location.href = "/login";
