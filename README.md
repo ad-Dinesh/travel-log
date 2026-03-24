@@ -77,7 +77,6 @@ npm start
 
 * 🗺️ Map integration for location tracking
 * 🖼️ Image upload for travel memories
-* 🔐 User authentication (Login/Signup)
 * ☁️ Cloud storage integration
 
 ---
